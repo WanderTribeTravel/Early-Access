@@ -1,0 +1,15 @@
+{
+  "name": "wandertribe-website",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "start": "pnpm --filter web start",
+    "lint": "pnpm --filter web lint",
+    "check-types": "pnpm --filter web check-types"
+  }
+}
