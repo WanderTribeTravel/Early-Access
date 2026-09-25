@@ -4,7 +4,8 @@ import EarlyAccessFlow from '../components/EarlyAccessFlow'
 const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL
 const facebookUrl = process.env.NEXT_PUBLIC_FACEBOOK_URL
 const youtubeUrl = process.env.NEXT_PUBLIC_YOUTUBE_URL
-const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL
+const whatsappChannelUrl = process.env.NEXT_PUBLIC_WHATSAPP_CHANNEL_URL
+const whatsappBusinessUrl = process.env.NEXT_PUBLIC_WHATSAPP_BUSINESS_URL
 
 export const metadata = {
   title: 'WanderTribe — Travel Together, Live Local',
@@ -52,7 +53,8 @@ export default async function HomePage(): Promise<React.ReactNode> {
               {instagramUrl ? <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a> : <span className="hero-social-disabled" aria-label="Instagram link not configured"><InstagramIcon /></span>}
               {facebookUrl ? <a href={facebookUrl} target="_blank" rel="noreferrer" aria-label="Facebook"><FacebookIcon /></a> : <span className="hero-social-disabled" aria-label="Facebook link not configured"><FacebookIcon /></span>}
               {youtubeUrl ? <a href={youtubeUrl} target="_blank" rel="noreferrer" aria-label="YouTube"><YouTubeIcon /></a> : <span className="hero-social-disabled" aria-label="YouTube link coming later"><YouTubeIcon /></span>}
-              {whatsappUrl ? <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp"><WhatsAppIcon /></a> : <span className="hero-social-disabled" aria-label="WhatsApp channel coming later"><WhatsAppIcon /></span>}
+              {whatsappChannelUrl ? <a href={whatsappChannelUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp Channel"><WhatsAppIcon /></a> : <span className="hero-social-disabled" aria-label="WhatsApp channel coming later"><WhatsAppIcon /></span>}
+              {whatsappBusinessUrl ? <a href={whatsappBusinessUrl} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><WhatsAppBusinessIcon /></a> : <span className="hero-social-disabled" aria-label="WhatsApp chat coming later"><WhatsAppBusinessIcon /></span>}
             </div>
           </div>
         </div>
@@ -577,7 +579,8 @@ export default async function HomePage(): Promise<React.ReactNode> {
             {instagramUrl ? <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a> : <span className="footer-social-disabled" aria-label="Instagram link not configured"><InstagramIcon /></span>}
             {facebookUrl ? <a href={facebookUrl} target="_blank" rel="noreferrer" aria-label="Facebook"><FacebookIcon /></a> : <span className="footer-social-disabled" aria-label="Facebook link not configured"><FacebookIcon /></span>}
             {youtubeUrl ? <a href={youtubeUrl} target="_blank" rel="noreferrer" aria-label="YouTube"><YouTubeIcon /></a> : <span className="footer-social-disabled" aria-label="YouTube link coming later"><YouTubeIcon /></span>}
-            {whatsappUrl ? <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp"><WhatsAppIcon /></a> : <span className="footer-social-disabled" aria-label="WhatsApp channel coming later"><WhatsAppIcon /></span>}
+            {whatsappChannelUrl ? <a href={whatsappChannelUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp Channel"><WhatsAppIcon /></a> : <span className="footer-social-disabled" aria-label="WhatsApp channel coming later"><WhatsAppIcon /></span>}
+            {whatsappBusinessUrl ? <a href={whatsappBusinessUrl} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><WhatsAppBusinessIcon /></a> : <span className="footer-social-disabled" aria-label="WhatsApp chat coming later"><WhatsAppBusinessIcon /></span>}
           </div>
         </div>
         <div className="footer-apps">
@@ -611,6 +614,15 @@ function InstagramIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><r
 function FacebookIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v4h4v-4h3.2l.8-4H13V9c0-.7.3-1 1-1Z"/></svg> }
 function YouTubeIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10 9 5 3-5 3V9Z" className="icon-cutout"/></svg> }
 function WhatsAppIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.77L3.5 20.5l4.85-1.13A8.5 8.5 0 1 0 12 3Zm0 15.4a6.9 6.9 0 0 1-3.52-.96l-.25-.15-2.88.67.68-2.8-.16-.26A6.9 6.9 0 1 1 12 18.4Zm3.82-5.1c-.2-.1-1.18-.58-1.36-.65-.18-.07-.31-.1-.44.1-.13.2-.5.65-.61.78-.11.13-.22.15-.42.05-.2-.1-.83-.31-1.58-.99-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.31.08-.41.09-.09.2-.22.3-.33.1-.11.13-.2.2-.33.07-.13.04-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.34h-.38c-.13 0-.34.05-.52.25-.18.2-.68.67-.68 1.64s.7 1.9.8 2.03c.1.13 1.38 2.1 3.35 2.94.47.2.84.32 1.13.41.47.15.9.13 1.24.08.38-.06 1.18-.48 1.35-.94.17-.46.17-.85.12-.94-.05-.08-.18-.13-.38-.23Z"/></svg> }
+/** Same WhatsApp glyph, drawn inside a rounded chat-bubble badge so it reads as a distinct "direct chat" action next to the plain WhatsApp Channel icon. */
+function WhatsAppBusinessIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="6" className="icon-cutout" />
+      <path d="M12 5.6a6.9 6.9 0 0 0-5.9 10.42L5.4 19.4l3.5-.92A6.9 6.9 0 1 0 12 5.6Zm3.16 9.62c-.16.44-.87.82-1.21.87-.31.05-.7.07-1.13-.07a10.3 10.3 0 0 1-1-.37 8.02 8.02 0 0 1-2.98-2.64c-.28-.38-.58-.83-.6-1.32-.02-.46.13-.87.4-1.14.12-.12.27-.19.42-.19h.3c.1 0 .23-.02.35.27.13.32.44 1.1.48 1.18.04.08.06.18.01.28-.05.1-.08.16-.16.25-.08.09-.17.2-.24.27-.08.08-.16.16-.07.32.1.16.44.72.94 1.16.65.58 1.19.76 1.36.85.16.08.26.07.35-.04.1-.11.42-.49.53-.66.11-.17.21-.14.36-.09.14.06.94.44 1.1.53.16.08.27.13.31.2.04.07.04.4-.12.84Z"/>
+    </svg>
+  )
+}
 function AppleSmallIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08ZM12.03 7.25C11.88 5.02 13.69 3.18 15.77 3c.29 2.58-2.33 4.5-3.74 4.25Z"/></svg> }
 function GooglePlaySmallIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.4c-.37.39-.6 1-.6 1.77v15.66c0 .77.23 1.38.6 1.77L3.7 21.7 14.42 10.98V10.9L3.7 2.3l-.1.1Z"/><path d="m17.96 14.52-3.54-3.54v-.08l3.54-3.54 4.25 2.42c1.21.69 1.21 1.63 0 2.32l-4.25 2.42Z"/><path d="m3.6 21.6 10.72-10.72 3.64 3.64-11.9 6.76c-.97.55-1.82.59-2.46.32Z"/><path d="m3.6 2.4 10.72 10.72-3.64 3.64L3.6 9.98c-.64-.37-1.05-.88-1.05-1.5 0-.62.41-1.13 1.05-1.5Z"/></svg> }
 
