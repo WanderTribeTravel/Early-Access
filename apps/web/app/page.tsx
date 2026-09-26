@@ -3077,6 +3077,7 @@ export default async function HomePage(): Promise<React.ReactNode> {
                 <li>3 breakfasts and 2 dinners</li>
                 <li>Trip coordinator throughout the journey</li>
                 <li>Driver allowances, tolls and parking</li>
+                <li>Group games, activities and listed sightseeing</li>
               </ul>
             </div>
             <div className="live-trip-list-card live-trip-exclusions">
